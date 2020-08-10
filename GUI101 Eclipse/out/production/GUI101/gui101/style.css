@@ -1,0 +1,39 @@
+.root { -fx-focus-color: transparent; }
+
+.list-view, .list-cell {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #262626;
+}
+
+#lvNotes .list-cell {
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.list-cell .label {
+    -fx-text-fill: #ffffff;
+}
+
+#lvNotes .list-cell:filled:selected:focused, #lvNotes .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(#328bdb 0%, #207bcf 25%, #1973C9 75%, #0A65BF 100%);
+    -fx-text-fill: white;
+}
+
+#pnlBody {
+    -fx-background-color: #8f3b69;
+}
+
+#btnExit, #btnMaximize, #btnMinimize, #btnSave {
+    -fx-background-color: #8f3b69;
+    -fx-text-fill: #fff;
+    -fx-highlight-text-fill: #ffffff;
+    -fx-cursor: hand;
+}
+
+#btnExit:hover, #btnMaximize:hover, #btnMinimize:hover, #btnSave {
+    -fx-background-color: #6d2f51;
+}
+
+#btnSave:hover {
+    -fx-background-color: #51223d;
+}
