@@ -19,23 +19,38 @@ public class NoteCell extends ListCell<NoteData> {
     public NoteCell() {
         super();
 
+        // instantiate the Labels that will be displayed (note sample label and date label)
         this.setLblSample(new Label());
         this.setLblDate(new Label());
-        this.getLblSample().setFont(Font.font("System", FontWeight.BOLD, 14));
+
+        // update the note sample label with the parameters below
+        this.getLblSample().setFont(Font.font("System", FontWeight.BOLD, 14)); // update the text style
+
+        // update the note sample label location in the cell
         this.getLblSample().setLayoutX(10.0);
         this.getLblSample().setLayoutY(15.0);
+
+        // update the width and height of the label container in the cell
         this.getLblSample().setPrefSize(115.0, 20.0);
         this.getLblSample().setMinSize(115.0, 20.0);
         this.getLblSample().setMaxSize(115.0, 20.0);
 
-        this.getLblDate().setFont(new Font("System", 10));
+        // update the date label with the parameters below
+        this.getLblDate().setFont(new Font("System", 10)); // update the text style
+
+        // update the note sample label location in the cell
         this.getLblDate().setLayoutX(125.0);
         this.getLblDate().setLayoutY(13.0);
+
+        // update the width and height of the label container in the cell
         this.getLblDate().setPrefSize(63.0, 20.0);
         this.getLblDate().setMinSize(63.0, 20.0);
         this.getLblDate().setMaxSize(63.0, 20.0);
 
+        // update the cells main contain with an AnchorPane that contains the note sample and date labels
         this.setPnlCell(new AnchorPane(this.getLblDate(), this.getLblSample()));
+
+        // update the width and height of the AnchorPane in the cell
         this.getPnlCell().setPrefSize(160.0, 50.0);
         this.getPnlCell().setMinSize(160.0, 50.0);
         this.getPnlCell().setMaxSize(160.0, 50.0);
@@ -49,12 +64,21 @@ public class NoteCell extends ListCell<NoteData> {
      */
     @Override
     protected void updateItem(NoteData item, boolean empty) {
+        // call the default updateItem function from the parent
         super.updateItem(item, empty);
+
+        // if an item (the NoteData) was added/updated in the NoteCell, update the cell's GUI
         if (item != null && !empty) {
+            // set the text of the note sample
             this.getLblSample().setText(item.getStrSample());
+            
+            // set the text of the date sample, with the given format in the NoteData
             this.getLblDate().setText(item.getDateFormat().format(new Date(item.getDate())));
+
+            // set the cell's graphic with the AnchorPane created in the constructor
             this.setGraphic(this.pnlCell);
         } else {
+            // if no item was added/the item was null, set no graphic in the cell
             this.setGraphic(null);
         }
     }
